@@ -6,33 +6,27 @@
  */
 public class Problema1
 {
-    EntradaDatos entrada = new EntradaDatos();
+    EntradaDatos entrada;
     int numA;
     int numB;
     String registroExplosiones;
+    
     public Problema1()
     {
         entrada = new EntradaDatos();
-        registroExplosiones ="";
+        registroExplosiones = "";
     }
 
     public int pedirNumero()
     {
         String mensaje = "";
-        boolean numAmenorNumB = true;
-        while(numAmenorNumB)
-        {
-            mensaje = ("Digite un numero A mayor que 2:");//Se pide mayor que 2 para que numA sea posible mayor que B
-            numA = entrada.pedirNumero(mensaje,2);
-           
-            mensaje = ("Digite un numero B menor que numero A, numero A es"+numA);
-            numB = entrada.pedirNumeroRango(mensaje,numA,1);//Se le solicita un numero menor que numA, para que se cumbla n>b-----
+        
+        mensaje = ("Digite un numero A:");
+        numA = entrada.pedirNumero(mensaje,0);
+       
+        mensaje = ("Digite un numero B mayor o igual a 2");
+        numB = entrada.pedirNumero(mensaje,1);//Se le solicita un numero mayor o igual a 2 para que no suceda una cadena infinita
   
-            if(numA>numB)
-            {
-                numAmenorNumB = false;
-            }
-        }
         return numA;
     }
 
@@ -42,17 +36,14 @@ public class Problema1
         if(numB>=n)
         {
             registroExplosiones += (n/numB);
-            
         }
         else
         {
             int n1 = (n/numB);
-            
             explote(n1);
             
             int n2 = (n-(n/numB));
             explote (n2);
-            
         }
        
     }
@@ -68,7 +59,8 @@ public class Problema1
         int numA = problema.pedirNumero();
     
         problema.explote(numA);
-            problema.mostrarRegistroExplosiones();
+        problema.mostrarRegistroExplosiones();
     }
 
 }
+
