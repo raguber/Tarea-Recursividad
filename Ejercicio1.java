@@ -40,14 +40,13 @@ public class Ejercicio1
         }
         else
         {
-            numA /= numB;
             System.out.println(numA);
-            numB = (numA-(numA/numB));
+            numA = (numA-(numA/numB));
             System.out.println(numB);
             registroExplosiones += ("( Explosion en cadena, num A ="+numA+" numB ="+numB+")");
-            
+             hacerExplosion();
         }
-        hacerExplosion();
+       
     }
 
     public void mostrarRegistroExplosiones()
