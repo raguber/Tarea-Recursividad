@@ -1,17 +1,17 @@
 
-public class Ejercicio1
+public class Problema1
 {
     EntradaDatos entrada = new EntradaDatos();
     int numA;
     int numB;
     String registroExplosiones;
-    public Ejercicio1()
+    public Problema1()
     {
         entrada = new EntradaDatos();
         registroExplosiones ="";
     }
 
-    public void pedirNumero()
+    public int pedirNumero()
     {
         String mensaje = "";
         boolean numAmenorNumB = true;
@@ -19,47 +19,51 @@ public class Ejercicio1
         {
             mensaje = ("Digite un numero A mayor que 2:");//Se pide mayor que 2 para que numA sea posible mayor que B
             numA = entrada.pedirNumero(mensaje,2);
-            System.out.println(numA);
+           
             mensaje = ("Digite un numero B menor que numero A, numero A es"+numA);
             numB = entrada.pedirNumeroRango(mensaje,numA,1);//Se le solicita un numero menor que numA, para que se cumbla n>b-----
-            System.out.println(numB);
+  
             if(numA>numB)
             {
                 numAmenorNumB = false;
             }
         }
+        return numA;
     }
 
-    public void hacerExplosion()
+    public void explote(int n)
     {
-    
-        if(numB>=numA)
+        
+        if(numB>=n)
         {
-            registroExplosiones += ("( numA / numB :"+(numA/numB)+")"); 
-            mostrarRegistroExplosiones();
+            registroExplosiones += (n/numB);
+            
         }
         else
         {
-            System.out.println(numA);
-            numA = (numA-(numA/numB));
-            System.out.println(numB);
-            registroExplosiones += ("( Explosion en cadena, num A ="+numA+" numB ="+numB+")");
-             hacerExplosion();
+            int n1 = (n/numB);
+            
+            explote(n1);
+            
+            int n2 = (n-(n/numB));
+            explote (n2);
+            
         }
        
     }
 
     public void mostrarRegistroExplosiones()
     {
-        System.out.println("Se presentan las explosiones"+registroExplosiones);
+        System.out.println("Se presentan las explosiones "+registroExplosiones);
     }
 
     public static void main (String args[])
     {
-        Ejercicio1 ejercicio = new Ejercicio1();
-        ejercicio.pedirNumero();
-        ejercicio.hacerExplosion();
-
+        Problema1 ejercicio = new Problema1();
+        int numA = ejercicio.pedirNumero();
+    
+        ejercicio.explote(numA);
+            ejercicio.mostrarRegistroExplosiones();
     }
 
 }
