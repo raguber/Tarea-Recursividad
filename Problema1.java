@@ -20,12 +20,12 @@ public class Problema1
     public int pedirNumero()
     {
         String mensaje = "";
-        
-        mensaje = ("Digite un numero A:");
-        numA = entrada.pedirNumero(mensaje,0);
        
         mensaje = ("Digite un numero B mayor o igual a 2");
         numB = entrada.pedirNumero(mensaje,1);//Se le solicita un numero mayor o igual a 2 para que no suceda una cadena infinita
+        
+        mensaje = ("Digite un numero A mayor que B:");
+        numA = entrada.pedirNumero(mensaje,numB);
   
         return numA;
     }
