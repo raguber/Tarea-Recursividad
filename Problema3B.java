@@ -2,50 +2,66 @@
 /**
  * Solución del problema 3.
  *
- * @author (Juan José Bermúdez Vargas & Randy Aguero)
+ * @author (Juan José Bermúdez Vargas & Randy Aguero B90082)
  * @version (17.06.2021)
  */
 
-import javax.swing.JOptionPane;
+
 public class Problema3B
 {
-    public String quiteRepetidos (String sec, char lastChar, boolean start)
+    EntradaDatos entrada;
+    public Problema3B()
+
+    {
+        entrada = new EntradaDatos();
+    }
+    public String quiteRepetidos (String sec, char caracterUltimo, boolean start)
     {
         if (sec.equals(""))
         {
             return "";
         }
-        char newChar = sec.charAt(0);
-        String newSec = "";
+        char nuevoCaracter = sec.charAt(0);
+        String nuevaSecuencia = "";
         for (int i = 1; i<sec.length(); i++)
         {
-            newSec += sec.charAt(i);
+            nuevaSecuencia += sec.charAt(i);
         }
-        if (start || newChar != lastChar)
+        if (start || nuevoCaracter != caracterUltimo)
         {
-            return newChar + quiteRepetidos(newSec,newChar,false);
+            return nuevoCaracter + quiteRepetidos(nuevaSecuencia,nuevoCaracter,false);
         }
-        return quiteRepetidos(newSec,newChar,false);
+        return quiteRepetidos(nuevaSecuencia,nuevoCaracter,false);
     }
     
-    public String inviertaHilera (String msg)
+    public String inviertaHilera (String hil)
     {
-        if (msg.equals(""))
+        if (hil.equals(""))
         {
             return "";
         }
-        String newMsg = "";
-        for (int i = 0; i<msg.length()-1; i++)
+        String nuevaHilera= "";
+        for (int i = 0; i<hil.length()-1; i++)
         {
-            newMsg += msg.charAt(i);
+            nuevaHilera+= hil.charAt(i);
         }
-        return msg.charAt(msg.length()-1) + inviertaHilera(newMsg);
+        return hil.charAt(hil.length()-1) + inviertaHilera(nuevaHilera);
     }
+    public String pedirHilera()
+    {
+        String hilera = "";
+        String mensaje = ("Escriba un texto");
+        hilera = entrada.pedirTexto(mensaje);
+        return hilera;
+    }
+
     
     public static void main (String arg [])
     {
-        String msg = JOptionPane.showInputDialog(null,"Ingrese mensaje para calcular su inverso.");
-        Problema3B p3 = new Problema3B();
-        JOptionPane.showMessageDialog(null,"Mensaje original: " + msg + "\nMensaje invertido: " + p3.inviertaHilera(p3.quiteRepetidos(msg,'a',true)));
+        Problema3B problema = new Problema3B();
+        String hilera = problema.pedirHilera();
+        System.out.println("Se muestra mensaje invertido");
+        String hileraInvertida = problema.inviertaHilera(problema.quiteRepetidos(hilera,'a',true));
+        System.out.println(hileraInvertida);
     }
 }

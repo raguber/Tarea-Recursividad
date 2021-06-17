@@ -1,4 +1,9 @@
-
+/**
+ * Solución del problema 1
+ *
+ * @author (Juan José Bermúdez Vargas & Randy Aguero B90082)
+ * @version (17.06.2021)
+ */
 public class Problema1
 {
     EntradaDatos entrada = new EntradaDatos();
@@ -59,11 +64,11 @@ public class Problema1
 
     public static void main (String args[])
     {
-        Problema1 ejercicio = new Problema1();
-        int numA = ejercicio.pedirNumero();
+        Problema1 problema = new Problema1();
+        int numA = problema.pedirNumero();
     
-        ejercicio.explote(numA);
-            ejercicio.mostrarRegistroExplosiones();
+        problema.explote(numA);
+            problema.mostrarRegistroExplosiones();
     }
 
 }

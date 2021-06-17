@@ -1,9 +1,9 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
-
 /**
- * @author Randy Agüero B90082 
- * Esta clase se usara para pedir datos al usuario
+ * 
+ * Randy Aguero B90082
+ * 
  */
 public class EntradaDatos
 
@@ -12,7 +12,7 @@ public class EntradaDatos
     {
 
     }
-    
+
     public int pedirNumeroRango(String mensaje,int opcionMaxima, int opcionMinima)
     {
         boolean entradaIncorrecta = true;
@@ -47,7 +47,6 @@ public class EntradaDatos
         return opcionElegida;
     }
 
-   
     /**
      * Este metodo funciona para pedir un texto, como el nombre
      */
@@ -74,6 +73,7 @@ public class EntradaDatos
 
         return texto;
     }
+
     /**
      * Este metodo funciona para pedir un numero
      * necesita un numero minimo
@@ -108,6 +108,5 @@ public class EntradaDatos
         }
         return numero;
     }
-    
 
 }
