@@ -96,7 +96,7 @@ public class EntradaDatos
             {
                 System.out.println("Error, Lo ingresado no es un numero entero");
             }
-            if ((numero<numeroMinimo))
+            if ((numero<=numeroMinimo))
             {
                 System.out.println("Debe digitar un numero entero mayor que "+numeroMinimo);
             }
