@@ -2,7 +2,7 @@
 /**
  * Solución del problema 3
  *
- * @author (Juan José Bermúdez Vargas & Randy Aguero B90082)
+ * @author (Juan José Bermúdez Vargas  B71082 & Randy Aguero B90082)
  * @version (17.06.2021)
  */
 
